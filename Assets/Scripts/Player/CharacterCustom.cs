@@ -22,6 +22,8 @@ public class Character : MonoBehaviour
     public SpriteRenderer RArm;
     public SpriteRenderer LArm;
 
+    GameObject player;
+
     string currentSceneName;
     int LoadSprite;
 
@@ -33,7 +35,7 @@ public class Character : MonoBehaviour
     public int selecter = -1;
     private void Awake()
     {
-        GameObject player = GameObject.Find("Player");
+        player = GameObject.Find("Player");
         //너무 하드 코딩인데 이거 어떻게 줄일 수 있는 방법이 있습니까 튜터님!!!
         PlayerName =player.transform.GetChild(2).GetChild(1).GetComponent<TMP_Text>();
         Hair = player.transform.GetChild(0).GetChild(0).GetChild(0).GetChild(2).GetChild(0).GetChild(0).GetChild(0).GetComponent<SpriteRenderer>();
@@ -43,6 +45,11 @@ public class Character : MonoBehaviour
         LArm = player.transform.GetChild(0).GetChild(0).GetChild(0).GetChild(3).GetChild(0).GetChild(0).GetChild(0).GetChild(0).GetChild(0).GetChild(0).GetComponent<SpriteRenderer>();
 
         currentSceneName = SceneManager.GetActiveScene().name;
+        
+    }
+    private void Start()
+    {
+        if (currentSceneName == "GameScene") gameObject.SetActive(false);
     }
     public void Select(int selectNum)
     {
@@ -203,8 +210,25 @@ public class Character : MonoBehaviour
             }
             else if (parent== CharacterChange)
             {
+                Movement movement = player.GetComponent<Movement>();
+                AimRotation aimRotation = player.GetComponent<AimRotation>();
+                movement.MoveSet(true);
+                aimRotation.AimSet(true);
                 SceneManager.LoadScene("GameScene");
             }
         }
+        else
+        {
+            GameManager.Instance.PlayerMoveSet(true);
+        }
     }
+    public void Cancle()
+    {
+        ChangePlayerName.text = "";
+        NameChange.SetActive(false);
+        CharacterChange.SetActive(false);
+        gameObject.SetActive(false);
+        GameManager.Instance.PlayerMoveSet(true);
+    }
+    
 }

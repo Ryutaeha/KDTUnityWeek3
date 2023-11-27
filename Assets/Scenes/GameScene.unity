@@ -7529,7 +7529,7 @@ GameObject:
   - component: {fileID: 1911471580}
   - component: {fileID: 1911471582}
   m_Layer: 5
-  m_Name: ChangeInfoBtn
+  m_Name: CharacterInfoBtn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9133,6 +9133,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 471759232}
     m_Modifications:
+    - target: {fileID: 1228820193051014744, guid: 521bbb69198f6e144a5847e5de2806f9, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1228820193051014744, guid: 521bbb69198f6e144a5847e5de2806f9, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 8923685721780926281}
+    - target: {fileID: 1228820193051014744, guid: 521bbb69198f6e144a5847e5de2806f9, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Cancle
+      objectReference: {fileID: 0}
+    - target: {fileID: 1228820193051014744, guid: 521bbb69198f6e144a5847e5de2806f9, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Character, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 1605626657318037802, guid: 521bbb69198f6e144a5847e5de2806f9, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -9217,12 +9233,43 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4529246381374679394, guid: 521bbb69198f6e144a5847e5de2806f9, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8440716185500668641, guid: 521bbb69198f6e144a5847e5de2806f9, type: 3}
       propertyPath: m_Name
       value: ChangeInfo
+      objectReference: {fileID: 0}
+    - target: {fileID: 8440716185500668641, guid: 521bbb69198f6e144a5847e5de2806f9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8450091861704114913, guid: 521bbb69198f6e144a5847e5de2806f9, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 8923685721780926281}
+    - target: {fileID: 8450091861704114913, guid: 521bbb69198f6e144a5847e5de2806f9, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Cancle
+      objectReference: {fileID: 0}
+    - target: {fileID: 8450091861704114913, guid: 521bbb69198f6e144a5847e5de2806f9, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Character, Assembly-CSharp
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 521bbb69198f6e144a5847e5de2806f9, type: 3}
+--- !u!114 &8923685721780926281 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4514170703709045640, guid: 521bbb69198f6e144a5847e5de2806f9, type: 3}
+  m_PrefabInstance: {fileID: 8923685721780926280}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e949734c9e9dc1442aed9d1bbb0b0efa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
