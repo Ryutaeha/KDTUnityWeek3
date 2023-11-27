@@ -17,10 +17,14 @@ public class Character : MonoBehaviour
     SpriteRenderer SelectObject;
     string Root;
     string ResourcesRoot = "SPUM/SPUM_Sprites/Items/";
-    int selecter;
+    public int selecter = -1;
     private void Awake()
     {
-
+        Hair = GameObject.Find("Player").transform.GetChild(0).GetChild(0).GetChild(0).GetChild(2).GetChild(0).GetChild(0).GetChild(0).GetComponent<SpriteRenderer>();
+        Beard = GameObject.Find("Player").transform.GetChild(0).GetChild(0).GetChild(0).GetChild(2).GetChild(0).GetChild(2).GetChild(0).GetComponent<SpriteRenderer>();
+        Body = GameObject.Find("Player").transform.GetChild(0).GetChild(0).GetChild(0).GetChild(1).GetChild(0).GetChild(0).GetComponent<SpriteRenderer>();
+        RArm = GameObject.Find("Player").transform.GetChild(0).GetChild(0).GetChild(0).GetChild(3).GetChild(1).GetChild(0).GetChild(0).GetChild(0).GetChild(0).GetChild(0).GetComponent<SpriteRenderer>();
+        LArm = GameObject.Find("Player").transform.GetChild(0).GetChild(0).GetChild(0).GetChild(3).GetChild(0).GetChild(0).GetChild(0).GetChild(0).GetChild(0).GetChild(0).GetComponent<SpriteRenderer>();
     }
     public void Select(int selectNum)
     {
@@ -50,7 +54,7 @@ public class Character : MonoBehaviour
     }
     public void Change(bool rightleft)
     {
-        if(selecter > -1 && selecter < 3)
+        if(selecter >= 0 && selecter <= 2)
         {
             if(rightleft)
             {
