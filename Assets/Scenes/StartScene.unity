@@ -299,6 +299,34 @@ PrefabInstance:
       propertyPath: m_text
       value: "\uC0AC\uC6A9"
       objectReference: {fileID: 0}
+    - target: {fileID: 4529246381374679394, guid: 521bbb69198f6e144a5847e5de2806f9, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4529246381374679394, guid: 521bbb69198f6e144a5847e5de2806f9, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4529246381374679394, guid: 521bbb69198f6e144a5847e5de2806f9, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 1146491578}
+    - target: {fileID: 4529246381374679394, guid: 521bbb69198f6e144a5847e5de2806f9, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4529246381374679394, guid: 521bbb69198f6e144a5847e5de2806f9, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: Participant
+      objectReference: {fileID: 0}
+    - target: {fileID: 4529246381374679394, guid: 521bbb69198f6e144a5847e5de2806f9, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: GameManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4529246381374679394, guid: 521bbb69198f6e144a5847e5de2806f9, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 5445309413871286190, guid: 521bbb69198f6e144a5847e5de2806f9, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -442,6 +470,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 3307411878331498653, guid: 7e4269234314d474893ade86184d056b, type: 3}
+      propertyPath: m_TagString
+      value: NameTag
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -476,7 +508,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0492fc27f05ca6f4cba59e48322e8d9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerPrefab: {fileID: 0}
+  ParticipantNameBox: {fileID: 1683783190359761806, guid: 5700bbfc1b312d14bb310e03d7b71404, type: 3}
+  Time: {fileID: 0}
 --- !u!4 &1146491579
 Transform:
   m_ObjectHideFlags: 0

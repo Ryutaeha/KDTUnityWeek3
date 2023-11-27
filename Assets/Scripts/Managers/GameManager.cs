@@ -2,12 +2,15 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    public GameObject ParticipantNameBox;
     public TMP_Text Time;
+    List<GameObject> Participants = new List<GameObject>();
     // 싱글톤 인스턴스를 저장할 정적 변수
     private static GameManager instance;
     GameObject Player;
@@ -77,10 +80,42 @@ public class GameManager : MonoBehaviour
     void SceneNewLoad(Scene scene, LoadSceneMode mode)
     {
         TimeSet();
-        if(scene.name == "GameScene") btnManager.ButtonSet();
-        BtnManager.Instance.OnCharacterInfo();
-        BtnManager.Instance.OnCharacterChange();
-        BtnManager.Instance.OnNameChangeBtn();
+        if (scene.name == "GameScene") {
+            btnManager.ButtonSet();
+        }
+            BtnManager.Instance.OnCharacterInfo();
+            BtnManager.Instance.OnCharacterChange();
+            BtnManager.Instance.OnNameChangeBtn();
+
+            Participant();
+    }
+
+    public void Participant()
+    {
+        if(Participants.Count != 0) DestroyParticipant();
+        GameObject[] participantName = GameObject.FindGameObjectsWithTag("NameTag");
+        float boxPosition = 130;
+        foreach (GameObject participant in participantName)
+        {
+            Transform Parent = GameObject.Find("CharacterInfo").transform;
+            ParticipantNameBox.transform.GetChild(0).GetComponent<TMP_Text>().text = participant.GetComponent<TMP_Text>().text;
+            GameObject newParticipantNameBox = Instantiate(ParticipantNameBox, Parent);
+            RectTransform newParticipantNameBoxRectTransform = newParticipantNameBox.GetComponent<RectTransform>();
+
+            newParticipantNameBoxRectTransform.anchoredPosition = new Vector2(0, -70f - boxPosition);
+
+            newParticipantNameBox.transform.SetParent(Parent);
+            boxPosition += 130;
+            Participants.Add(newParticipantNameBox);
+        }
+    }
+
+    private void DestroyParticipant()
+    {
+        foreach(GameObject participant in Participants)
+        {
+            Destroy(participant);
+        }
     }
 
     private void TimeSet()

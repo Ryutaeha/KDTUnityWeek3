@@ -9,14 +9,14 @@ using UnityEngine.UI;
 
 public class BtnManager : MonoBehaviour
 {
-    public GameObject NameChange;
-    public GameObject CharacterChange;
-    public GameObject CharacterInfo;
-    public GameObject ChangeInfo;
-    public Button NameChangeBtn;
-    public Button CharacterChangeBtn;
-    public Button CharacterInfoBtn;
-    string currentSceneName;
+    public Animator CharacterInfoAni;
+    GameObject NameChange;
+    GameObject CharacterChange;
+    GameObject CharacterInfo;
+    GameObject ChangeInfo;
+    Button NameChangeBtn;
+    Button CharacterChangeBtn;
+    Button CharacterInfoBtn;
 
     // 정적으로 접근 가능한 인스턴스
     private static BtnManager instance;
@@ -60,16 +60,7 @@ public class BtnManager : MonoBehaviour
 
         
     }
-    /*
-     NameChangeBtn.onClick.AddListener(() => movement.MoveSet(false));
-            NameChangeBtn.onClick.AddListener(() => aimRotation.AimSet(false));
-            CharacterChangeBtn.onClick.AddListener(() => movement.MoveSet(false));
-            CharacterChangeBtn.onClick.AddListener(() => aimRotation.AimSet(false));
-            CancleBtn.onClick.AddListener(() => movement.MoveSet(true));
-            CancleBtn.onClick.AddListener(() => aimRotation.AimSet(true));
-            ChangeBtn.onClick.AddListener(() => movement.MoveSet(true));
-            ChangeBtn.onClick.AddListener(() => aimRotation.AimSet(true));
-     */
+    
     public void OnNameChangeBtn()
     {
         NameChangeBtn.onClick.AddListener(() => PlayerChangeSet(true));
@@ -95,7 +86,17 @@ public class BtnManager : MonoBehaviour
     }
     public void CharacterInfoSet()
     {
-        if(CharacterInfo.activeSelf)
+        Debug.Log(CharacterInfoAni.GetBool("IsOpen"));
+        if(CharacterInfoAni.GetBool("IsOpen")){
+            CharacterInfoAni.SetBool("IsOpen", false);
+        }
+        else
+        {
+            CharacterInfoAni.SetBool("IsOpen", true);
+        }
+        
+        /*
+        if (CharacterInfo.activeSelf)
         {
             CharacterInfo.SetActive(false);
         }
@@ -103,11 +104,11 @@ public class BtnManager : MonoBehaviour
         {
             CharacterInfo.SetActive(true);
         }
+         */
     }
     public void ButtonSet()
     {
         //이것또한 넘모 하드 코딩인거 같습니다...
-        currentSceneName = SceneManager.GetActiveScene().name;
         ChangeInfo = GameObject.Find("ChangeInfo");
         NameChange = GameObject.Find("NameChange");
         CharacterChange = GameObject.Find("CharacterChange");
@@ -115,5 +116,6 @@ public class BtnManager : MonoBehaviour
         NameChangeBtn = GameObject.Find("NameChangeBtn").transform.GetComponent<Button>();
         CharacterChangeBtn = GameObject.Find("CharacterChangeBtn").transform.GetComponent<Button>();
         CharacterInfoBtn = GameObject.Find("CharacterInfoBtn").transform.GetComponent<Button>();
+        CharacterInfoAni = GameObject.Find("CharacterInfo").GetComponent<Animator>();
     }
 }

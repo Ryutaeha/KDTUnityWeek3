@@ -185,6 +185,8 @@ public class Character : MonoBehaviour
                 CheckPlayerName.text = "변경되었습니다.";
                 CheckPlayerName.color = Color.green;
                 if (currentSceneName == "StartScene") playerCreate = true;
+                if(SceneManager.GetActiveScene().name == "GameScene") GameManager.Instance.Participant();
+
             }
             else
             {
