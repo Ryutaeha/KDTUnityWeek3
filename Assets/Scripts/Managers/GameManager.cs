@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    
+    public GameObject playerPrefab;
     // 싱글톤 인스턴스를 저장할 정적 변수
     private static GameManager instance;
 
@@ -31,16 +33,6 @@ public class GameManager : MonoBehaviour
 
     // 게임매니저의 기능이나 상태에 대한 메서드들을 추가할 수 있음
 
-    // 예시 메서드
-    public void StartGame()
-    {
-        Debug.Log("Game Started!");
-    }
-
-    public void EndGame()
-    {
-        Debug.Log("Game Ended!");
-    }
 
     private void Awake()
     {
@@ -56,5 +48,8 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
     }
+    
+
 }

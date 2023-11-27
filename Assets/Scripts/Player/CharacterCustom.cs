@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Character : MonoBehaviour
 {
@@ -15,6 +18,10 @@ public class Character : MonoBehaviour
     string Root;
     string ResourcesRoot = "SPUM/SPUM_Sprites/Items/";
     int selecter;
+    private void Awake()
+    {
+
+    }
     public void Select(int selectNum)
     {
         switch (selectNum)
@@ -43,58 +50,62 @@ public class Character : MonoBehaviour
     }
     public void Change(bool rightleft)
     {
-        if(rightleft)
+        if(selecter > -1 && selecter < 3)
         {
-            LoadSprite++;
-            if (LoadSprite > 5) LoadSprite = 0;
-
-            if (LoadSprite == 0)
+            if(rightleft)
             {
-                if (selecter == 2)
+                LoadSprite++;
+                if (LoadSprite > 5) LoadSprite = 0;
+
+                if (LoadSprite == 0)
                 {
-                    LArm.sprite = null;
-                    RArm.sprite = null;
+                    if (selecter == 2)
+                    {
+                        LArm.sprite = null;
+                        RArm.sprite = null;
+                    }
+                    SelectObject.sprite = null;
                 }
-                SelectObject.sprite = null;
+                else
+                {
+                    if (selecter == 2)
+                    {
+                        Sprite[] arm = Resources.LoadAll<Sprite>(ResourcesRoot + Root + LoadSprite);
+                        LArm.sprite = arm[1];
+                        RArm.sprite = arm[2];
+                    }
+                    SelectObject.sprite = Resources.Load<Sprite>(ResourcesRoot + Root + LoadSprite);
+                    Debug.Log(SelectObject.sprite.name);
+                }    
             }
             else
             {
-                if (selecter == 2)
-                {
-                    Sprite[] arm = Resources.LoadAll<Sprite>(ResourcesRoot + Root + LoadSprite);
-                    LArm.sprite = arm[1];
-                    RArm.sprite = arm[2];
-                }
-                SelectObject.sprite = Resources.Load<Sprite>(ResourcesRoot + Root + LoadSprite);
-                Debug.Log(SelectObject.sprite.name);
-            }    
-        }
-        else
-        {
-            LoadSprite--;
-            if (LoadSprite <= -1) LoadSprite = 5;
+                LoadSprite--;
+                if (LoadSprite <= -1) LoadSprite = 5;
 
-            if (LoadSprite == 0)
-            {
-                if(selecter == 2)
+                if (LoadSprite == 0)
                 {
-                    LArm.sprite = null;
-                    RArm.sprite = null;
+                    if(selecter == 2)
+                    {
+                        LArm.sprite = null;
+                        RArm.sprite = null;
+                    }
+                    SelectObject.sprite = null;
                 }
-                SelectObject.sprite = null;
-            }
-            else
-            {
-                if(selecter == 2)
+                else
                 {
-                    Sprite[] arm = Resources.LoadAll<Sprite>(ResourcesRoot + Root + LoadSprite);
-                    LArm.sprite = arm[1];
-                    RArm.sprite = arm[2];
+                    if(selecter == 2)
+                    {
+                        Sprite[] arm = Resources.LoadAll<Sprite>(ResourcesRoot + Root + LoadSprite);
+                        LArm.sprite = arm[1];
+                        RArm.sprite = arm[2];
+                    }
+                    SelectObject.sprite = Resources.Load<Sprite>(ResourcesRoot + Root + LoadSprite);
+                    Debug.Log(SelectObject.sprite.name);
                 }
-                SelectObject.sprite = Resources.Load<Sprite>(ResourcesRoot + Root + LoadSprite);
-                Debug.Log(SelectObject.sprite.name);
             }
         }
+
     }
 
 
