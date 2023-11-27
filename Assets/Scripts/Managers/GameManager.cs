@@ -5,7 +5,6 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     
-    public GameObject playerPrefab;
     // 싱글톤 인스턴스를 저장할 정적 변수
     private static GameManager instance;
 

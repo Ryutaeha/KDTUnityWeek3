@@ -1,30 +1,48 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Character : MonoBehaviour
 {
+    public TMP_InputField ChangePlayerName;
+    public TMP_Text PlayerName;
+    public TMP_Text CheckPlayerName;
+
+    public GameObject NameChange;
+    public GameObject CharacterChange;
+
     public SpriteRenderer Hair;
     public SpriteRenderer Beard;
     public SpriteRenderer Body;
     public SpriteRenderer RArm;
     public SpriteRenderer LArm;
+
+    string currentSceneName;
     int LoadSprite;
-    // Start is called before the first frame update
+
+    bool playerCreate;
+
     SpriteRenderer SelectObject;
     string Root;
     string ResourcesRoot = "SPUM/SPUM_Sprites/Items/";
     public int selecter = -1;
     private void Awake()
     {
-        Hair = GameObject.Find("Player").transform.GetChild(0).GetChild(0).GetChild(0).GetChild(2).GetChild(0).GetChild(0).GetChild(0).GetComponent<SpriteRenderer>();
-        Beard = GameObject.Find("Player").transform.GetChild(0).GetChild(0).GetChild(0).GetChild(2).GetChild(0).GetChild(2).GetChild(0).GetComponent<SpriteRenderer>();
-        Body = GameObject.Find("Player").transform.GetChild(0).GetChild(0).GetChild(0).GetChild(1).GetChild(0).GetChild(0).GetComponent<SpriteRenderer>();
-        RArm = GameObject.Find("Player").transform.GetChild(0).GetChild(0).GetChild(0).GetChild(3).GetChild(1).GetChild(0).GetChild(0).GetChild(0).GetChild(0).GetChild(0).GetComponent<SpriteRenderer>();
-        LArm = GameObject.Find("Player").transform.GetChild(0).GetChild(0).GetChild(0).GetChild(3).GetChild(0).GetChild(0).GetChild(0).GetChild(0).GetChild(0).GetChild(0).GetComponent<SpriteRenderer>();
+        GameObject player = GameObject.Find("Player");
+        //³Ê¹« ÇÏµå ÄÚµùÀÎµ¥ ÀÌ°Å ¾î¶»°Ô ÁÙÀÏ ¼ö ÀÖ´Â ¹æ¹ýÀÌ ÀÖ½À´Ï±î Æ©ÅÍ´Ô!!!
+        PlayerName =player.transform.GetChild(2).GetChild(1).GetComponent<TMP_Text>();
+        Hair = player.transform.GetChild(0).GetChild(0).GetChild(0).GetChild(2).GetChild(0).GetChild(0).GetChild(0).GetComponent<SpriteRenderer>();
+        Beard = player.transform.GetChild(0).GetChild(0).GetChild(0).GetChild(2).GetChild(0).GetChild(2).GetChild(0).GetComponent<SpriteRenderer>();
+        Body = player.transform.GetChild(0).GetChild(0).GetChild(0).GetChild(1).GetChild(0).GetChild(0).GetComponent<SpriteRenderer>();
+        RArm = player.transform.GetChild(0).GetChild(0).GetChild(0).GetChild(3).GetChild(1).GetChild(0).GetChild(0).GetChild(0).GetChild(0).GetChild(0).GetComponent<SpriteRenderer>();
+        LArm = player.transform.GetChild(0).GetChild(0).GetChild(0).GetChild(3).GetChild(0).GetChild(0).GetChild(0).GetChild(0).GetChild(0).GetChild(0).GetComponent<SpriteRenderer>();
+
+        currentSceneName = SceneManager.GetActiveScene().name;
     }
     public void Select(int selectNum)
     {
@@ -140,6 +158,53 @@ public class Character : MonoBehaviour
                 LArm.color = choice;
             }
 
+        }
+    }
+    public void UpdateName()
+    {
+        if (ChangePlayerName == null || string.IsNullOrWhiteSpace(ChangePlayerName.text))
+        {
+            CheckPlayerName.text = "ÀÔ·ÂÀÌ ¾ÈµÇ¾îÀÖ½À´Ï´Ù.";
+            CheckPlayerName.color = Color.red;
+        }
+        else
+        {
+            Regex regex = new Regex("^[°¡-ÆRA-Za-z]{2,10}$");
+
+            if (regex.IsMatch(ChangePlayerName.text))
+            {
+                PlayerName.SetText(ChangePlayerName.text);
+                ChangePlayerName.text = "";
+                CheckPlayerName.text = "º¯°æµÇ¾ú½À´Ï´Ù.";
+                CheckPlayerName.color = Color.green;
+                if (currentSceneName == "StartScene") playerCreate = true;
+            }
+            else
+            {
+                CheckPlayerName.text = "º¯°æÁ¶°Ç¿¡ ¸ÂÁö ¾Ê½À´Ï´Ù.";
+                CheckPlayerName.color = Color.red;
+                if (currentSceneName == "StartScene") playerCreate = false;
+            }
+        }
+    }
+    public void OnChangeBtn()
+    {
+        if (currentSceneName == "StartScene")
+        {
+            GameObject parent = UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject.transform.parent.gameObject;
+            if (parent== NameChange)
+            {
+                if (playerCreate)
+                {
+                    NameChange.SetActive(false);
+                    CharacterChange.SetActive(true);
+
+                }
+            }
+            else if (parent== CharacterChange)
+            {
+                SceneManager.LoadScene("GameScene");
+            }
         }
     }
 }

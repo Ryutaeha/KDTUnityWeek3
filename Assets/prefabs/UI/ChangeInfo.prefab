@@ -123,9 +123,21 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UI, Assembly-CSharp
+      - m_Target: {fileID: 4514170703709045640}
+        m_TargetAssemblyTypeName: Character, Assembly-CSharp
         m_MethodName: UpdateName
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 4514170703709045640}
+        m_TargetAssemblyTypeName: Character, Assembly-CSharp
+        m_MethodName: OnChangeBtn
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -272,7 +284,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 4514170703709045640}
         m_TargetAssemblyTypeName: Character, Assembly-CSharp
         m_MethodName: Change
         m_Mode: 6
@@ -812,7 +824,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 4514170703709045640}
         m_TargetAssemblyTypeName: Character, Assembly-CSharp
         m_MethodName: Select
         m_Mode: 3
@@ -962,7 +974,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 4514170703709045640}
         m_TargetAssemblyTypeName: Character, Assembly-CSharp
         m_MethodName: ChangeColor
         m_Mode: 3
@@ -1111,7 +1123,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 4514170703709045640}
         m_TargetAssemblyTypeName: Character, Assembly-CSharp
         m_MethodName: Change
         m_Mode: 6
@@ -1384,6 +1396,18 @@ MonoBehaviour:
       - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UI, Assembly-CSharp
         m_MethodName: Cancel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 4514170703709045640}
+        m_TargetAssemblyTypeName: Character, Assembly-CSharp
+        m_MethodName: OnChangeBtn
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2885,7 +2909,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2374684192659332370
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3503,7 +3527,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 4514170703709045640}
         m_TargetAssemblyTypeName: Character, Assembly-CSharp
         m_MethodName: Select
         m_Mode: 3
@@ -3788,7 +3812,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 4514170703709045640}
         m_TargetAssemblyTypeName: Character, Assembly-CSharp
         m_MethodName: ChangeColor
         m_Mode: 3
@@ -3905,11 +3929,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e949734c9e9dc1442aed9d1bbb0b0efa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ChangePlayerName: {fileID: 686264294588201568}
+  PlayerName: {fileID: 0}
+  CheckPlayerName: {fileID: 5439867411356582983}
+  NameChange: {fileID: 6985466819384090561}
+  CharacterChange: {fileID: 5445309413871286190}
   Hair: {fileID: 0}
   Beard: {fileID: 0}
   Body: {fileID: 0}
   RArm: {fileID: 0}
   LArm: {fileID: 0}
+  selecter: -1
 --- !u!1 &8510274239557578620
 GameObject:
   m_ObjectHideFlags: 0
@@ -4168,7 +4198,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 4514170703709045640}
         m_TargetAssemblyTypeName: Character, Assembly-CSharp
         m_MethodName: ChangeColor
         m_Mode: 3
@@ -4318,7 +4348,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 4514170703709045640}
         m_TargetAssemblyTypeName: Character, Assembly-CSharp
         m_MethodName: Select
         m_Mode: 3

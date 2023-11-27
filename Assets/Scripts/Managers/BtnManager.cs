@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
+using TMPro;
 using UnityEngine;
 
 public class BtnManager : MonoBehaviour
 {
+
     // 정적으로 접근 가능한 인스턴스
     private static BtnManager instance;
 
@@ -46,11 +49,8 @@ public class BtnManager : MonoBehaviour
 
     }
 
-    public void UpdateName()
-    {
-
-    }
-    void Start()
+    
+        void Start()
     {
         
     }
