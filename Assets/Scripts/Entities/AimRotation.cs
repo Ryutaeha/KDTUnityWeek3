@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.Mathematics;
 using UnityEngine;
 
@@ -9,6 +10,7 @@ public class AimRotation : MonoBehaviour
 
     float flipX;
     private PlayerController _controller;
+    [SerializeField] private Canvas nameTag;
 
     private void Awake()
     {
@@ -29,19 +31,28 @@ public class AimRotation : MonoBehaviour
     void RotationAim(Vector2 direction)
     {
         //Debug.Log(direction.x);
-        
-        float rotZ = MathF.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        if (direction.x > 0) transform.localScale = new Vector3(-flipX, transform.localScale.y, transform.localScale.z);
-        else if(direction.x < 0) transform.localScale = new Vector3(flipX, transform.localScale.y, transform.localScale.z);
-        /*
-            if (Mathf.Abs(rotZ) > 90f) player.localScale = new Vector3(player.localScale.x * -1, player.localScale.y, player.localScale.z) ;
-            else player.localScale = new Vector3(player.localScale.x * -1, player.localScale.y, player.localScale.z) ;
-         */
-    }
 
-    // Update is called once per frame
-    void Update()
+        float rotZ = MathF.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        if (direction.x > 0)
+        {
+            transform.localScale = new Vector3(-flipX, transform.localScale.y, transform.localScale.z);
+            nameTag.transform.localScale = new Vector3(-1, 1, 1);
+        }
+        else if (direction.x < 0)
+        {
+            transform.localScale = new Vector3(flipX, transform.localScale.y, transform.localScale.z);
+            nameTag.transform.localScale = new Vector3(1, 1, 1);
+        }
+
+        // Update is called once per frame
+        void Update()
+        {
+
+        }
+    }
+    public void AimSet(bool move)
     {
-        
+        if (move) _controller.OnLookEvent += OnAim;
+        else _controller.OnLookEvent -= OnAim;
     }
 }

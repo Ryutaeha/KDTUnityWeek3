@@ -1,10 +1,12 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
+
     private PlayerController _controller;
     private Animator _animator;
     private Vector2 _movementDirection = Vector2.zero;
@@ -21,15 +23,16 @@ public class Movement : MonoBehaviour
 
     private void Start()
     {
-        _controller.OnMoveEvent += Move;
+        
+        _controller.OnMoveEvent += Move;;
     }
-
+     
     private void FixedUpdate()
     {
         ApplyMovoment(_movementDirection);
     }
 
-    private void Move(Vector2 direction)
+    internal void Move(Vector2 direction)
     {
         _movementDirection = direction;
     }
@@ -41,5 +44,15 @@ public class Movement : MonoBehaviour
 
         if (!direction.Equals(Vector2.zero)) _animator.SetFloat("RunState", 0.5f);
         else _animator.SetFloat("RunState", 0.0f);
+    }
+
+    public void MoveSet(bool move)
+    {
+        if (move) _controller.OnMoveEvent += Move;
+        else
+        {
+            Move(Vector2.zero);
+            _controller.OnMoveEvent -= Move;
+        }
     }
 }
