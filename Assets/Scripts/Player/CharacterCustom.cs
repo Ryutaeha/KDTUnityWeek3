@@ -45,7 +45,7 @@ public class Character : MonoBehaviour
         RArm = player.transform.GetChild(0).GetChild(0).GetChild(0).GetChild(3).GetChild(1).GetChild(0).GetChild(0).GetChild(0).GetChild(0).GetChild(0).GetComponent<SpriteRenderer>();
         LArm = player.transform.GetChild(0).GetChild(0).GetChild(0).GetChild(3).GetChild(0).GetChild(0).GetChild(0).GetChild(0).GetChild(0).GetChild(0).GetComponent<SpriteRenderer>();
          */
-        // 플레이어에게 자기자신 값을 주고 해당 값을 찾아오는식으로 변경 이렇게 되면 다음에 다른 코드를 쓸때도 확장성이 더 좋아질수 잇다.
+        // 플레이어에게 자기자신 값을 주고 해당 값을 찾아오는식으로 변경 이렇게 되면 다음에 다른 코드를 쓸때도 확장성이 더 좋아질수 있다.
         PlayerName = player.GetComponent<Player>().playerName;
         Hair = player.GetComponent<Player>().Hair;
         Beard = player.GetComponent<Player>().Beard;

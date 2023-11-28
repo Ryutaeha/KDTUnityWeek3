@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using Unity.Collections.LowLevel.Unsafe;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class NPCConversation : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class NPCConversation : MonoBehaviour
     public TMP_Text detailText;
     public GameObject TextBox;
     public GameObject TextBtn;
+    public Button EndBtn;
+    public TMP_Text NPCText;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
@@ -27,13 +30,18 @@ public class NPCConversation : MonoBehaviour
 
         }
     }
+    private void Start()
+    {
+        TextBtn.GetComponent<Button>().onClick.AddListener(() => gameObject.GetComponent<NPCConversation>().EventNPC());
+        EndBtn.onClick.AddListener(()=> gameObject.GetComponent<NPCConversation>().EventNPCEnd());
+    }
     public void EventNPC()
     {
         AudioManager.Instance.PlayAudioClip();
         TextBtn.SetActive(false);
         TextBox.SetActive(true);
         nameText.text = NPCName.text;
-        detailText.text = "뭐야 너는 코딩 안해?\n취업안해?";
+        detailText.text = NPCText.text;
 
     }
     public void EventNPCEnd()
