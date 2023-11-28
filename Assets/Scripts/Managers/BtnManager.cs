@@ -9,7 +9,7 @@ using UnityEngine.UI;
 
 public class BtnManager : MonoBehaviour
 {
-    public Animator CharacterInfoAni;
+    Animator CharacterInfoAni;
     GameObject NameChange;
     GameObject CharacterChange;
     GameObject CharacterInfo;
@@ -75,6 +75,7 @@ public class BtnManager : MonoBehaviour
     }
     public void PlayerChangeSet(bool select)
     {
+        AudioManager.Instance.PlayAudioClip();
         ChangeInfo.SetActive(true);
         NameChange.SetActive(select);
         CharacterChange.SetActive(!select);
@@ -86,6 +87,7 @@ public class BtnManager : MonoBehaviour
     }
     public void CharacterInfoSet()
     {
+        AudioManager.Instance.PlayAudioClip();
         Debug.Log(CharacterInfoAni.GetBool("IsOpen"));
         if(CharacterInfoAni.GetBool("IsOpen")){
             CharacterInfoAni.SetBool("IsOpen", false);
@@ -95,16 +97,6 @@ public class BtnManager : MonoBehaviour
             CharacterInfoAni.SetBool("IsOpen", true);
         }
         
-        /*
-        if (CharacterInfo.activeSelf)
-        {
-            CharacterInfo.SetActive(false);
-        }
-        else
-        {
-            CharacterInfo.SetActive(true);
-        }
-         */
     }
     public void ButtonSet()
     {
@@ -118,4 +110,5 @@ public class BtnManager : MonoBehaviour
         CharacterInfoBtn = GameObject.Find("CharacterInfoBtn").transform.GetComponent<Button>();
         CharacterInfoAni = GameObject.Find("CharacterInfo").GetComponent<Animator>();
     }
+
 }

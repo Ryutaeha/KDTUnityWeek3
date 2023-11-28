@@ -29,6 +29,7 @@ public class NPCConversation : MonoBehaviour
     }
     public void EventNPC()
     {
+        AudioManager.Instance.PlayAudioClip();
         TextBtn.SetActive(false);
         TextBox.SetActive(true);
         nameText.text = NPCName.text;
@@ -37,6 +38,7 @@ public class NPCConversation : MonoBehaviour
     }
     public void EventNPCEnd()
     {
+        AudioManager.Instance.PlayAudioClip();
         TextBtn.SetActive(true);
         TextBox.SetActive(false);
     }

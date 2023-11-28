@@ -44,7 +44,6 @@ public class Player : MonoBehaviour
             Destroy(gameObject);
         }
         
-
     }
 
     // Start is called before the first frame update
@@ -60,4 +59,6 @@ public class Player : MonoBehaviour
     {
         
     }
+
+    
 }

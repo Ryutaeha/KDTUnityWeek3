@@ -53,6 +53,7 @@ public class Character : MonoBehaviour
     }
     public void Select(int selectNum)
     {
+        AudioManager.Instance.PlayAudioClip();
         switch (selectNum)
         {
             case 0: SelectObject = Hair;
@@ -79,7 +80,8 @@ public class Character : MonoBehaviour
     }
     public void Change(bool rightleft)
     {
-        if(selecter >= 0 && selecter <= 2)
+        AudioManager.Instance.PlayAudioClip();
+        if (selecter >= 0 && selecter <= 2)
         {
             if(rightleft)
             {
@@ -140,6 +142,7 @@ public class Character : MonoBehaviour
 
     public void ChangeColor(int selectNum)
     {
+        AudioManager.Instance.PlayAudioClip();
         Color choice;
         switch (selectNum)
         {
@@ -169,6 +172,7 @@ public class Character : MonoBehaviour
     }
     public void UpdateName()
     {
+        AudioManager.Instance.PlayAudioClip();
         if (ChangePlayerName == null || string.IsNullOrWhiteSpace(ChangePlayerName.text))
         {
             CheckPlayerName.text = "입력이 안되어있습니다.";
@@ -198,6 +202,7 @@ public class Character : MonoBehaviour
     }
     public void OnChangeBtn()
     {
+        AudioManager.Instance.PlayAudioClip();
         if (currentSceneName == "StartScene")
         {
             GameObject parent = UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject.transform.parent.gameObject;
@@ -226,6 +231,7 @@ public class Character : MonoBehaviour
     }
     public void Cancle()
     {
+        AudioManager.Instance.PlayAudioClip();
         ChangePlayerName.text = "";
         NameChange.SetActive(false);
         CharacterChange.SetActive(false);
