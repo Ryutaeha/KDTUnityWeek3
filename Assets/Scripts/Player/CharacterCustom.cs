@@ -10,12 +10,12 @@ using UnityEngine.UI;
 public class Character : MonoBehaviour
 {
     public TMP_InputField ChangePlayerName;
-    public TMP_Text PlayerName;
     public TMP_Text CheckPlayerName;
 
     public GameObject NameChange;
     public GameObject CharacterChange;
 
+    public TMP_Text PlayerName;
     public SpriteRenderer Hair;
     public SpriteRenderer Beard;
     public SpriteRenderer Body;
@@ -37,12 +37,21 @@ public class Character : MonoBehaviour
     {
         player = GameObject.Find("Player");
         //너무 하드 코딩인데 이거 어떻게 줄일 수 있는 방법이 있습니까 튜터님!!!
+        /*
         PlayerName =player.transform.GetChild(2).GetChild(1).GetComponent<TMP_Text>();
         Hair = player.transform.GetChild(0).GetChild(0).GetChild(0).GetChild(2).GetChild(0).GetChild(0).GetChild(0).GetComponent<SpriteRenderer>();
         Beard = player.transform.GetChild(0).GetChild(0).GetChild(0).GetChild(2).GetChild(0).GetChild(2).GetChild(0).GetComponent<SpriteRenderer>();
         Body = player.transform.GetChild(0).GetChild(0).GetChild(0).GetChild(1).GetChild(0).GetChild(0).GetComponent<SpriteRenderer>();
         RArm = player.transform.GetChild(0).GetChild(0).GetChild(0).GetChild(3).GetChild(1).GetChild(0).GetChild(0).GetChild(0).GetChild(0).GetChild(0).GetComponent<SpriteRenderer>();
         LArm = player.transform.GetChild(0).GetChild(0).GetChild(0).GetChild(3).GetChild(0).GetChild(0).GetChild(0).GetChild(0).GetChild(0).GetChild(0).GetComponent<SpriteRenderer>();
+         */
+        // 플레이어에게 자기자신 값을 주고 해당 값을 찾아오는식으로 변경 이렇게 되면 다음에 다른 코드를 쓸때도 확장성이 더 좋아질수 잇다.
+        PlayerName = player.GetComponent<Player>().playerName;
+        Hair = player.GetComponent<Player>().Hair;
+        Beard = player.GetComponent<Player>().Beard;
+        Body = player.GetComponent<Player>().Body;
+        RArm = player.GetComponent<Player>().RArm;
+        LArm = player.GetComponent<Player>().LArm;
 
         currentSceneName = SceneManager.GetActiveScene().name;
         

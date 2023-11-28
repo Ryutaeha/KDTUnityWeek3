@@ -15,14 +15,14 @@ public class NPCConversation : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            if(gameObject.name == "Npc (3)") TextBtn.SetActive(true);
+            TextBtn.SetActive(true);
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            if (gameObject.name == "Npc (3)") TextBtn.SetActive(false);
+            TextBtn.SetActive(false);
             TextBox.SetActive(false);
 
         }

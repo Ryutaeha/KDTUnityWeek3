@@ -7,6 +7,11 @@ public class Player : MonoBehaviour
 {
     private static Player instance;
     public TMP_Text playerName;
+    public SpriteRenderer Hair;
+    public SpriteRenderer Beard;
+    public SpriteRenderer Body;
+    public SpriteRenderer RArm;
+    public SpriteRenderer LArm;
 
     // 다른 스크립트에서 접근할 수 있는 속성
     public static Player Instance

@@ -1300,6 +1300,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerName: {fileID: 3931677300065427686}
+  Hair: {fileID: 0}
+  Beard: {fileID: 0}
+  Body: {fileID: 0}
+  RArm: {fileID: 0}
+  LArm: {fileID: 0}
 --- !u!50 &6736113125646906440
 Rigidbody2D:
   serializedVersion: 4

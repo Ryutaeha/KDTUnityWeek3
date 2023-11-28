@@ -715,6 +715,26 @@ PrefabInstance:
       propertyPath: m_TagString
       value: NameTag
       objectReference: {fileID: 0}
+    - target: {fileID: 5818767143690263073, guid: 7e4269234314d474893ade86184d056b, type: 3}
+      propertyPath: Body
+      value: 
+      objectReference: {fileID: 1186815401}
+    - target: {fileID: 5818767143690263073, guid: 7e4269234314d474893ade86184d056b, type: 3}
+      propertyPath: Hair
+      value: 
+      objectReference: {fileID: 1724774438}
+    - target: {fileID: 5818767143690263073, guid: 7e4269234314d474893ade86184d056b, type: 3}
+      propertyPath: LArm
+      value: 
+      objectReference: {fileID: 2049235302}
+    - target: {fileID: 5818767143690263073, guid: 7e4269234314d474893ade86184d056b, type: 3}
+      propertyPath: RArm
+      value: 
+      objectReference: {fileID: 1506203399}
+    - target: {fileID: 5818767143690263073, guid: 7e4269234314d474893ade86184d056b, type: 3}
+      propertyPath: Beard
+      value: 
+      objectReference: {fileID: 1395223033}
     m_RemovedComponents:
     - {fileID: 5027746835656907030, guid: 7e4269234314d474893ade86184d056b, type: 3}
     m_RemovedGameObjects: []
@@ -767,6 +787,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &1186815401 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 493197776045477954, guid: 7e4269234314d474893ade86184d056b, type: 3}
+  m_PrefabInstance: {fileID: 913141988}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &1395223033 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 8348738261981450089, guid: 7e4269234314d474893ade86184d056b, type: 3}
+  m_PrefabInstance: {fileID: 913141988}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &1506203399 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 3678335031744601237, guid: 7e4269234314d474893ade86184d056b, type: 3}
+  m_PrefabInstance: {fileID: 913141988}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1620126573
 GameObject:
   m_ObjectHideFlags: 0
@@ -953,3 +988,13 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!212 &1724774438 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 1453978546137805024, guid: 7e4269234314d474893ade86184d056b, type: 3}
+  m_PrefabInstance: {fileID: 913141988}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &2049235302 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 4409680568293832661, guid: 7e4269234314d474893ade86184d056b, type: 3}
+  m_PrefabInstance: {fileID: 913141988}
+  m_PrefabAsset: {fileID: 0}
